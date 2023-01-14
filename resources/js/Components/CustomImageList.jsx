@@ -20,7 +20,7 @@ function srcset(image, width, height, rows = 1, cols = 1) {
 export default function CustomImageList() {
     const { movie } = useGlobalContext();
     const onCLickMovie = (imdbID) => {
-        window.location = `detailmovie/${imdbID}`;
+        window.location = `detailproduk/${imdbID}`;
     };
     return (
         <ImageList

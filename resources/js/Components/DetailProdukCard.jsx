@@ -26,7 +26,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function DetailMovieCard(props) {
+export default function DetailProdukCard(props) {
     console.log(props.movie);
     const [expanded, setExpanded] = React.useState(false);
 

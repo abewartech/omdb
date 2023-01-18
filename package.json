@@ -27,6 +27,8 @@
         "@mui/icons-material": "^5.11.0",
         "@mui/material": "^5.11.2",
         "formik": "^2.2.9",
-        "material-react-table": "^1.5.8"
+        "material-react-table": "^1.5.8",
+        "mui-file-dropzone": "^4.0.2",
+        "react-select": "^5.7.0"
     }
 }

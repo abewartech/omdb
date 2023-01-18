@@ -32,7 +32,7 @@ class HelperController extends Controller
             'message' => $kategori,
         ], 200);
     }
-    
+
     public function deletekategori()
     {
         $kategori = Kategori::find(request('id'));
@@ -50,7 +50,16 @@ class HelperController extends Controller
         $produk->name = request('name');
         $produk->id_kategori = request('kategori');
         $produk->kode = request('code');
-        $produk->foto = request('foto');
+        $customthumb = request()->file('foto');
+        $filenamethumb = preg_replace(
+            '/\s+/',
+            '',
+            pathinfo($customthumb->getClientOriginalName(), PATHINFO_FILENAME) .
+            '.' .
+            $customthumb->getClientOriginalExtension()
+        );
+        $customthumb->move(public_path(), $filenamethumb);
+        $produk->foto = $filenamethumb;
         $produk->save();
 
         return response()->json([
@@ -70,7 +79,7 @@ class HelperController extends Controller
             'message' => $produk,
         ], 200);
     }
-    
+
     public function deleteproduk()
     {
         $produk = Produk::find(request('id'));

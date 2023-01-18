@@ -27,7 +27,8 @@ Route::get('/kategori', function () {
 
 Route::get('/produk', function () {
     $produk = Produk::all();
-    return Inertia::render('Produk', ['data' => $produk]);
+    $kategori = Kategori::all();
+    return Inertia::render('Produk', ['data' => $produk, 'kategori' => $kategori]);
 })->middleware(['auth', 'verified'])->name('produk');
 
 Route::get('/detailproduk/{movie}', function () {
